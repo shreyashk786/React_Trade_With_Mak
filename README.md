@@ -1,17 +1,15 @@
 # React_Trade_With_Mak
 In this project ReactJs is used as Frontend. NodeJs, ExpressJs is used as backend. Database is not used. all operations are performed by RestApi
 
-![Dashboard](photos/ReactApp-usermanagement.png) 
+![Dashboard](photos/UserTabledashboard.png) 
 User Table dashboard
-![Dashboard](photos/ReactApp-adduser.png)    
+![Dashboard](photos/AddingUser.png)    
 Adding User
-![Dashboard](photos/ReactApp-useraddedpopup.png)    
+![Dashboard](photos/UserAddedPopup.png)    
 User Added Popup
-![Dashboard](photos/ReactApp-deletinguserPopup.png)
+![Dashboard](photos/DeletingUserPopup.png)
 Deleting User Popup
-![Dashboard](photos/ReactApp-userdeletedpopup.png)
-User added Popup
-![Dashboard](photos/ReactApp-userview.png)   
+![Dashboard](photos/view.png)   
 User View
 
 
