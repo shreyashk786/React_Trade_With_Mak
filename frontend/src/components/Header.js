@@ -17,7 +17,7 @@ const Header = () => {
   }, [location]);
   return (
     <div className="header">
-      <p className="logo">User Management</p>
+     <p className="logo"><img src="https://tradewithmak.com/wp-content/uploads/2022/01/logo_banner_light_trans.png" width={250}/></p>
       <div className="header-right">
         <Link to="/">
           <p
