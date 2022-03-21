@@ -29,7 +29,7 @@ const AddEdit = () => {
   }, [id]);
 
   const getSingleUser = async (id) => {
-    const response = await axios.get(`http://localhost:5000/adduser/${id}`);
+    const response = await axios.get(`https://trade-with-mak.herokuapp.com/adduser/${id}`);
     if (response.status === 200) {
       setState({ ...response.data});
     }
@@ -44,7 +44,7 @@ const AddEdit = () => {
   };
 
   const addUser = async (data) => {
-    const response = await axios.post("http://localhost:5000/adduser", data);
+    const response = await axios.post("https://trade-with-mak.herokuapp.com/adduser", data);
     if (response.status === 200) {
       toast("Added Sucessfully");
       navigate('/')
@@ -52,7 +52,7 @@ const AddEdit = () => {
   };
 
   const updateUser = async (data, id) => {
-    const response = await axios.put(`http://localhost:5000/adduser/${id}`, data);
+    const response = await axios.put(`https://trade-with-mak.herokuapp.com/adduser/${id}`, data);
     if (response.status === 200) {
       toast("Updated Sucessfully");
       navigate('/')

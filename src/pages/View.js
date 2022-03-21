@@ -16,7 +16,7 @@ const View = () => {
 
 
   const getSingleUser = async (id) => {
-    const response = await axios.get(`http://localhost:5000/user/${id}`);
+    const response = await axios.get(`https://trade-with-mak.herokuapp.com/user/${id}`);
     if (response.status === 200) {
       setUser({ ...response.data[0] });
     }
