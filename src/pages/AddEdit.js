@@ -1,0 +1,190 @@
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useNavigate } from 'react-router';
+import "./AddEdit.css";
+import { toast } from "react-toastify";
+import axios from "axios";
+
+const initialState = {
+  name: "",
+  username: "",
+  address: "",
+  contact: "",
+  email: "",
+  dob: "",
+  
+};
+
+const AddEdit = () => {
+  const [state, setState] = useState(initialState);
+  const { name, email, username, address, contact, dob } = state;
+  const [data, setData] = useState([]);
+  const { id , type} = useParams();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    console.log(id);
+    getAllUsers();
+      }, []);
+  const getAllUsers = async () => {
+    const response = await axios.get(`http://localhost:5000/adduser`);
+    if (response.status === 200) {
+      setData(response.data);
+     console.log(response.data);
+     response.data.map((item, index) => {
+      if(item._id== id){
+        setState({name:item.name});
+        setState({email:item.email});
+        setState({contact:item.contact});
+        setState({username:item.username});
+        setState({address:item.address});
+        setState({dob:item.dob});
+        console.log("found");
+      }
+     })
+
+    }
+  };
+
+  const getSingleUser = async (id) => {
+    data.map((item, index) => {
+       if(item._id== id){
+         setState({name:item.name});
+         setState({email:item.email});
+         setState({contact:item.contact});
+         setState({username:item.username});
+         setState({address:item.address});
+         setState({dob:item.dob});
+         console.log("found");
+       }
+      })
+    // const response = await axios.get(`http://localhost:5000/adduser/search`);
+    // if (response.status === 200) {
+    //   setState(response.data);
+    //   console.log(response.data);
+    // }
+  };
+  
+  const handleInputChange = (e) => {
+    let { name, value } = e.target;
+    setState({
+      ...state,
+      [name]: value,
+    });
+  };
+
+  const addUser = async (data) => {
+    const response = await axios.post("http://localhost:5000/adduser", data);
+    if (response.status === 200) {
+      toast("Added Sucessfully");
+      navigate('/home')
+    }
+  };
+
+  const updateUser = async (data, id) => {
+    const response = await axios.put(`http://localhost:5000/adduser/${id}`, data);
+    if (response.status === 200) {
+      toast("Updated Sucessfully");
+      navigate('/home')
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // if (!name || !username || !address || !email || !dob || !contact) {
+    //   toast.error("Please provide value in each input field");
+    // } else {
+      if (!id) {
+        addUser(state);
+      } else {
+        updateUser(state, id);
+      }
+
+    //  }
+  };
+  return (
+    <div style={{ marginTop: "100px" }}>
+      <form
+        style={{
+          margin: "auto",
+          padding: "15px",
+          maxWidth: "400px",
+          alignContent: "center",
+        }}
+        onSubmit={handleSubmit}
+      >
+        <label htmlFor="name">Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Enter Name..."
+          value={name}
+          onChange={handleInputChange}
+          disabled={type}
+
+        />
+
+        <label htmlFor="name">Username</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Enter User Name..."
+          value={username}
+          onChange={handleInputChange}
+          disabled={type}
+        />
+
+        <label htmlFor="name">Address</label>
+        <input
+          type="text"
+          id="address"
+          name="address"
+          placeholder="Enter address..."
+          value={address}
+          onChange={handleInputChange}
+          disabled={type}
+        />
+
+        <label htmlFor="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter Email..."
+          value={email}
+          onChange={handleInputChange}
+          disabled={type}
+        />
+
+        <label htmlFor="contact">Contact</label>
+        <input
+          type="number"
+          id="contact"
+          name="contact"
+          placeholder="Enter Contact No. ..."
+          value={contact}
+          onChange={handleInputChange}
+          disabled={type}
+        />
+        <label htmlFor="dob">DOB</label>
+        <input
+          type="date"
+          id="dob"
+          name="dob"
+          placeholder="Enter Date of birth. ..."
+          value={dob}
+          onChange={handleInputChange}
+          disabled={type}
+        />
+          {
+            type?"":<input type="submit" value={id ? "Update" : "Add"} />
+            }
+        
+      </form>
+    </div>
+  );
+};
+
+export default AddEdit;
