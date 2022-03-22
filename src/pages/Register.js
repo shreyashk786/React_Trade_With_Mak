@@ -54,11 +54,13 @@ const Register = () => {
         maxWidth: "450px",
         alignContent: "center",
         marginTop: "120px",
+        background: "linear-gradient(to bottom right, #313cd4, #a6507e)",
       }}
     >
       <MDBCard alignment="center">
-        <MDBIcon fas icon="user-circle" className="fa-2x" />
-        <h5>Sign Up</h5>
+      <br></br>
+        <h5><img src="https://tradewithmak.com/wp-content/uploads/2022/01/logo_banner_light_trans.png" width={150}/></h5>
+        <h5>Login</h5>
         <MDBCardBody>
           <MDBValidation onSubmit={handleSubmit} noValidate className="row g-3">
             <div className="col-md-6">

@@ -27,9 +27,9 @@ const Header = () => {
       <MDBContainer>
         <MDBNavbarBrand
           href="/"
-          style={{ color: "#606080", fontWeight: "600", fontSize: "22px" }}
+         
         >
-          User dashboard
+           <img src="https://tradewithmak.com/wp-content/uploads/2022/01/logo_banner_light_trans.png" alt="Logo" width={250}/>
         </MDBNavbarBrand>
         <MDBNavbarToggler
           type="button"

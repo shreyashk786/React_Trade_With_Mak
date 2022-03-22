@@ -20,7 +20,7 @@ const Home = () => {
   
 
   const getUsers = async () => {
-    const response = await axios.get("http://localhost:5000/adduser");
+    const response = await axios.get("https://trade-with-mak.herokuapp.com/adduser");
     if (response.status === 200) {
       setData(response.data);
 
@@ -40,7 +40,7 @@ const Home = () => {
     if (
       window.confirm("Are you sure that you wanted to delete that user record")
     ) {
-      const response = await axios.delete(`http://localhost:5000/adduser/${id}`);
+      const response = await axios.delete(`https://trade-with-mak.herokuapp.com/adduser/${id}`);
       if (response.status === 200) {
         toast(response.data.message);
         getUsers();

@@ -61,11 +61,13 @@ const Login = () => {
         maxWidth: "450px",
         alignContent: "center",
         marginTop: "120px",
+        background: "linear-gradient(to bottom right, #313cd4, #a6507e)",
       }}
     >
       <MDBCard alignment="center">
-        <MDBIcon fas icon="user-circle" className="fa-2x" />
-        <h5>Sign In</h5>
+      <br></br>
+        <h5><img src="https://tradewithmak.com/wp-content/uploads/2022/01/logo_banner_light_trans.png" width={150}/></h5>
+        <h5>Login</h5>
         <MDBCardBody>
           <MDBValidation onSubmit={handleSubmit} noValidate className="row g-3">
             <div className="col-md-12">
@@ -106,23 +108,7 @@ const Login = () => {
               </MDBBtn>
             </div>
           </MDBValidation>
-          <br />
-          <GoogleLogin
-            clientId="your client id"
-            render={(renderProps) => (
-              <MDBBtn
-                style={{ width: "100%" }}
-                color="danger"
-                onClick={renderProps.onClick}
-                disabled={renderProps.disabled}
-              >
-                <MDBIcon className="me-2" fab icon="google" /> Google Sign In
-              </MDBBtn>
-            )}
-            onSuccess={googleSuccess}
-            onFailure={googleFailure}
-            cookiePolicy="single_host_origin"
-          />
+         
         </MDBCardBody>
         <MDBCardFooter>
           <Link to="/register">

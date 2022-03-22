@@ -27,7 +27,7 @@ const AddEdit = () => {
     getAllUsers();
       }, []);
   const getAllUsers = async () => {
-    const response = await axios.get(`http://localhost:5000/adduser`);
+    const response = await axios.get(`https://trade-with-mak.herokuapp.com/adduser`);
     if (response.status === 200) {
       setData(response.data);
      console.log(response.data);
@@ -58,11 +58,7 @@ const AddEdit = () => {
          console.log("found");
        }
       })
-    // const response = await axios.get(`http://localhost:5000/adduser/search`);
-    // if (response.status === 200) {
-    //   setState(response.data);
-    //   console.log(response.data);
-    // }
+   
   };
   
   const handleInputChange = (e) => {
@@ -74,7 +70,7 @@ const AddEdit = () => {
   };
 
   const addUser = async (data) => {
-    const response = await axios.post("http://localhost:5000/adduser", data);
+    const response = await axios.post("https://trade-with-mak.herokuapp.com/adduser", data);
     if (response.status === 200) {
       toast("Added Sucessfully");
       navigate('/home')
@@ -82,7 +78,7 @@ const AddEdit = () => {
   };
 
   const updateUser = async (data, id) => {
-    const response = await axios.put(`http://localhost:5000/adduser/${id}`, data);
+    const response = await axios.put(`https://trade-with-mak.herokuapp.com/adduser/${id}`, data);
     if (response.status === 200) {
       toast("Updated Sucessfully");
       navigate('/home')

@@ -17,7 +17,7 @@ const Sample = () => {
 
   const history = useHistory();
   const addContact = async (data) => {
-    const response = await axios.post("http://localhost:5000/user", data);
+    const response = await axios.post("https://trade-with-mak.herokuapp.com/user", data);
     if (response.status === 200) {
       toast.success(response.data);
     }
